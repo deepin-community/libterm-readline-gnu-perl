@@ -1,0 +1,7 @@
+# Output:
+#
+# It is invalid to load Term::ReadLine::Gnu directly.  Please consult
+# the Term::ReadLine documentation for more information.
+
+use.t
+syntax.t
