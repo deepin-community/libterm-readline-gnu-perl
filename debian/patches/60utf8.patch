@@ -1,0 +1,30 @@
+Description: use C.UTF-8 instead of en_US.UTF-8
+ which may or may not be available
+Origin: vendor
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2022-12-03
+
+--- a/t/utf8_text.t
++++ b/t/utf8_text.t
+@@ -38,7 +38,7 @@
+ 
+ BEGIN {
+ #    $ENV{PERL_RL} = 'Gnu';     # force to use Term::ReadLine::Gnu
+-    $ENV{LC_ALL} = 'en_US.UTF-8';
++    $ENV{LC_ALL} = 'C.UTF-8';
+ }
+ 
+ use Term::ReadLine;
+@@ -67,9 +67,9 @@
+ # http://perldoc.perl.org/perllocale.html
+ use POSIX qw(locale_h);
+ use locale;
+-my $old_locale = setlocale(LC_ALL, 'en_US.UTF-8');
++my $old_locale = setlocale(LC_ALL, 'C.UTF-8');
+ if (!defined $old_locale) {
+-    diag "The locale 'en_US.UTF-8' is not supported. Skipped...";
++    diag "The locale 'C.UTF-8' is not supported. Skipped...";
+     ok(1, 'skip') for 1..(NTEST-3);
+     exit 0;
+ }
